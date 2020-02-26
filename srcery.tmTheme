@@ -740,6 +740,39 @@
           <string>#2C78BF</string>
         </dict>
       </dict>
+      <dict>
+        <key>name</key>
+        <string>Constant.string</string>
+        <key>scope</key>
+        <string>source.clojure constant.string.symbol.clojure</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#519F50</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Namespace</string>
+        <key>scope</key>
+        <string>entity.name.namespace</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#68A8E4</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Storage, Support functions</string>
+        <key>scope</key>
+        <string>storage.clojure, support.function.clojure</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#FBB829</string>
+        </dict>
+      </dict>
     </array>
     <key>uuid</key>
     <string>06CD1FB2-A00A-4F8C-97B2-60E131980454</string>
