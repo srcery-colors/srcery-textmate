@@ -729,6 +729,17 @@
           <string>#68A8E4</string>
         </dict>
       </dict>
+      <dict>
+        <key>name</key>
+        <string>Keyword</string>
+        <key>scope</key>
+        <string>source.clojure support.other.keyword</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#2C78BF</string>
+        </dict>
+      </dict>
     </array>
     <key>uuid</key>
     <string>06CD1FB2-A00A-4F8C-97B2-60E131980454</string>
