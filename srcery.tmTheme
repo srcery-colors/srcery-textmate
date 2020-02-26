@@ -735,6 +735,6 @@
     <key>colorSpaceName</key>
     <string>sRGB</string>
     <key>semanticClass</key>
-    <string>theme.dark.gruvbox</string>
+    <string>theme.dark.srcery</string>
   </dict>
 </plist>
