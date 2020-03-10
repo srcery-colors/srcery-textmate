@@ -69,6 +69,17 @@
       </dict>
       <dict>
         <key>name</key>
+        <string>Number</string>
+        <key>scope</key>
+        <string>constant.numeric</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#FF5C8F</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
         <string>Constant</string>
         <key>scope</key>
         <string>constant</string>
