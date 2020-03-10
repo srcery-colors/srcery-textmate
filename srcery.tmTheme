@@ -256,6 +256,19 @@
           <string>#FCE8C3</string>
         </dict>
       </dict>
+    <dict>
+      <key>name</key>
+      <string>Function name</string>
+      <key>scope</key>
+      <string>entity.name.function</string>
+      <key>settings</key>
+      <dict>
+        <key>fontStyle</key>
+        <string></string>
+        <key>foreground</key>
+        <string>#FBB829</string>
+      </dict>
+    </dict>
       <dict>
         <key>name</key>
         <string>Invalid</string>
