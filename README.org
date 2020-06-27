@@ -25,3 +25,11 @@ Generated with [[https://tmtheme-editor.herokuapp.com/][TmTheme Editor]].
   #+END_SRC
 
   Finally, use ~bat --list-themes~ to check if srcery is available.
+
+* Textastic
+  ./assets/screenshots/textastic.jpeg
+
+  The theme works great with [Textastic](https://www.textasticapp.com).
+
+  Follow the official [guide](https://www.textasticapp.com/v9/manual/customization/custom_syntax_themes_templates.html)
+  on how to add the theme.
