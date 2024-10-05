@@ -39,6 +39,8 @@
           <string>#D0BFA1</string>
           <key>stackGuide</key>
           <string>#918175</string>
+          <key>gutterForeground</key>
+          <string>#D0BFA1</string>
         </dict>
       </dict>
       <dict>
