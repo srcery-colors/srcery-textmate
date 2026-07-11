@@ -842,6 +842,39 @@
       </dict>
       <dict>
         <key>name</key>
+        <string>JSON: string quote marks (vim jsonQuote -&gt; Quote, unstyled = Normal)</string>
+        <key>scope</key>
+        <string>punctuation.definition.string.begin.json, punctuation.definition.string.end.json</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#FCE8C3</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>JSON: braces and brackets (vim jsonBraces -&gt; Delimiter)</string>
+        <key>scope</key>
+        <string>punctuation.section.mapping.begin.json, punctuation.section.mapping.end.json, punctuation.section.sequence.begin.json, punctuation.section.sequence.end.json</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#917E6B</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>JSON: string escape sequence, e.g. \n (vim jsonEscape -&gt; Special)</string>
+        <key>scope</key>
+        <string>constant.character.escape.json</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#2C78BF</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
         <string>Tag attribute</string>
         <key>scope</key>
         <string>entity.other.attribute-name</string>
