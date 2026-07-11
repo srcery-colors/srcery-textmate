@@ -831,6 +831,17 @@
       </dict>
       <dict>
         <key>name</key>
+        <string>JSON object key (vim jsonKeyword -&gt; Identifier, blue; the "JSON / TOML key" rule above targets support.type.property-name.json, a scope this grammar never actually emits -- JSON.sublime-syntax co-assigns meta.mapping.key.json string.quoted.double.json instead, so every key was falling through to the generic string-green rule alongside real string values)</string>
+        <key>scope</key>
+        <string>meta.mapping.key.json string.quoted.double.json</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#68A8E4</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
         <string>Tag attribute</string>
         <key>scope</key>
         <string>entity.other.attribute-name</string>
