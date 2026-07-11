@@ -2760,9 +2760,20 @@
       </dict>
       <dict>
         <key>name</key>
-        <string>PowerShell: automatic variable $_ (vim Identifier, same as regular variables)</string>
+        <string>PowerShell: preference variable, e.g. $ErrorActionPreference (vim Identifier; this rule was previously mislabeled as covering $_ -- $_'s real scope is support.variable.automatic.powershell, see below)</string>
         <key>scope</key>
         <string>variable.language.powershell</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#68A8E4</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>PowerShell: automatic variable $_ (vim StorageClass; grammar scope is support.variable.automatic.powershell -- without this, it falls through to the generic "support" rule (yellow, meant for cmdlet names) since no PowerShell-specific rule targeted it)</string>
+        <key>scope</key>
+        <string>support.variable.automatic.powershell</string>
         <key>settings</key>
         <dict>
           <key>foreground</key>
@@ -2800,6 +2811,39 @@
         <dict>
           <key>foreground</key>
           <string>#917E6B</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>PowerShell: type-annotation brackets, e.g. [int[]]/[double]/[PSCustomObject] (vim Type; the grammar's #type rule has no meta scope of its own, so its bracket punctuation is bare punctuation.section.bracket.*.powershell -- needs this base rule so the whole type token matches vim's single Type span, not just the type name text)</string>
+        <key>scope</key>
+        <string>punctuation.section.bracket.begin.powershell, punctuation.section.bracket.end.powershell</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#68A8E4</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>PowerShell: attribute brackets, e.g. [CmdletBinding()]/[Parameter()] (vim plain; descendant selector -- punctuation.section.bracket.*.powershell is shared with type-annotation brackets above, disambiguated by the meta.attribute.powershell ancestor the grammar wraps attribute brackets in)</string>
+        <key>scope</key>
+        <string>meta.attribute.powershell punctuation.section.bracket.begin.powershell, meta.attribute.powershell punctuation.section.bracket.end.powershell</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#FCE8C3</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>PowerShell: function/filter/configuration/workflow keyword (vim Keyword; descendant selector -- storage.type.powershell is shared with type annotations like [string]/[int], disambiguated by the meta.function.powershell ancestor the grammar wraps the keyword in)</string>
+        <key>scope</key>
+        <string>meta.function.powershell storage.type.powershell</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#EF2F27</string>
         </dict>
       </dict>
       <dict>
