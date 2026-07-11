@@ -2725,9 +2725,9 @@
       </dict>
       <dict>
         <key>name</key>
-        <string>PowerShell: comment-based help tag, e.g. .SYNOPSIS (vim Tag)</string>
+        <string>PowerShell: comment-based help tag, e.g. .SYNOPSIS (vim Tag; the grammar splits the token into a base scope for the whole match plus nested captures for the leading dot (constant.string.documentation.powershell) and the keyword itself (keyword.operator.documentation.powershell) -- vim's ps1CommentDoc matches the dot and keyword as one token, so all three scopes need this color or the captures fall through to unrelated rules (the dot in particular falls through to the generic "constant" rule, which is more specific than the base scope)</string>
         <key>scope</key>
-        <string>comment.documentation.embedded.powershell</string>
+        <string>comment.documentation.embedded.powershell, keyword.operator.documentation.powershell, constant.string.documentation.powershell</string>
         <key>settings</key>
         <dict>
           <key>fontStyle</key>
