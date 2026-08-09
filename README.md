@@ -20,8 +20,17 @@ Srcery TextMate Theme
 
 ### Description
 
-Srcery TextMate theme, best effort to match [srcery-vim](https://github.com/srcery-colors/srcery-vim) colors. Can be used
-anywhere that supports `tmTheme`.
+Srcery TextMate theme. [srcery-vim](https://github.com/srcery-colors/srcery-vim) remains the visual
+reference; this repository is the canonical TextMate representation for downstream consumers such as
+[srcery-vscode](https://github.com/srcery-colors/srcery-vscode). It can be used anywhere that supports
+`tmTheme`.
+
+### Downstream consumers
+
+Use `srcery.tmTheme` as the source for any TextMate-based integration. A downstream consumer should
+vendor or synchronize the file rather than duplicate its token rules, so fixes and deliberate grammar
+workarounds land consistently. Consumers with a different scope model, such as tree-sitter-based themes,
+should map the same visual intent rather than copy TextMate selectors verbatim.
 
 #### Preview
 ##### Javascript
