@@ -24,6 +24,20 @@ files tokenize differently; some tokens carry no usable scope at all. Aligned
 means: every mismatch that the grammar *can* express is fixed, and the rest
 are documented as gaps.
 
+## Downstream source of truth
+
+[srcery-vim](https://github.com/srcery-colors/srcery-vim) remains the upstream
+visual reference for choosing an intended color. Once that intent is expressed
+in `srcery.tmTheme`, this repository is the canonical TextMate source for
+downstream consumers, including
+[srcery-vscode](https://github.com/srcery-colors/srcery-vscode).
+
+TextMate consumers should vendor or synchronize `srcery.tmTheme` instead of
+maintaining an independent copy of its token rules. Fix a TextMate mapping here
+first, then update the consumer from this file. Consumers with a different
+scope model, such as Zed's tree-sitter theme, should map the same visual intent
+rather than copy TextMate selectors verbatim.
+
 ## Prerequisites
 
 - This repo, on branch `sync-palette-with-srcery-vim` (PR #3).
@@ -241,9 +255,29 @@ bash/python passes):
 - **Prefer language-suffixed rules** (`....python`, `....shell`) or
   `source.<lang>` descendant selectors for language-specific vim behavior.
   Never change a generic rule to fix one language — check what else uses it.
-- **No bare `meta.*` in scope selectors** (styling meta scopes is against
-  TextMate conventions). Exceptions already granted: `meta.object-literal.key`.
-  Using `meta.X` as the *ancestor* in a descendant selector is fine.
+- **Prefer leaf scopes to direct `meta.*` selectors.** A direct meta scope is
+  permitted only when the grammar exposes no stable non-meta leaf for the
+  intended span, and the rule name records both the visual intent and why it
+  is necessary. Using `meta.X` as an ancestor in a descendant selector is
+  always fine.
+
+  Approved direct-meta exceptions (these are deliberate fallback mappings, not
+  style bugs):
+
+  - `meta.object-literal.key` — object-literal keys without a usable leaf scope.
+  - `meta.object-literal.key.ts` — TypeScript object-literal keys.
+  - `meta.brace.square.ts` — TypeScript square braces.
+  - `meta.property.lua` — Lua plain field access.
+  - `meta.function-call.name.fish` — the only usable grammar scope for some
+    Fish structural keywords.
+  - `meta.preprocessor.haskell` — a Haskell pragma as one uniform span.
+  - `meta.table.header.markdown-gfm` — Markdown GFM table-header cells.
+  - `meta.link.reference.description.markdown` — Markdown reference-link
+    descriptions.
+
+  Do not remove these solely to satisfy the usual TextMate convention. A new
+  direct-meta exception needs a documented grammar limitation and regression
+  coverage in the language corpus.
 - **Only palette hexes.** If vim truth needs a color, it's in the quick
   reference above. Never invent one.
 - **`fontStyle` values**: exactly `bold`, `italic`, `underline`, space-
@@ -590,8 +624,9 @@ Notes:
       commit message.
 - [ ] All previously-done languages re-measured, counts unchanged.
 - [ ] JS operator smoke test passes.
-- [ ] Theme lints as valid plist; only palette hexes used; no bare `meta.*`
-      selectors added; fontStyle values clean.
+- [ ] Theme lints as valid plist; only palette hexes used; every direct
+      `meta.*` selector is in the approved exception list above and has
+      documented regression coverage; fontStyle values clean.
 - [ ] Queue table updated; committed on `sync-palette-with-srcery-vim`.
 
 When judgment calls arise that contradict an established decision or need a
