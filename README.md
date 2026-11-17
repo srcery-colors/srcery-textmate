@@ -75,6 +75,10 @@ Follow the official [guide](<https://www.textasticapp.com/v9/manual/customizatio
 
 Created with [TmTheme Editor](https://tmtheme-editor.herokuapp.com/).
 
+### Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ### License
 
 [MIT](LICENSE)
