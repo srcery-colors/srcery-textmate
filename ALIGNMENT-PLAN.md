@@ -1,7 +1,8 @@
 # Alignment plan: `srcery.tmTheme` ↔ srcery-vim
 
-Status: all 22 corpus languages measured; 21 aligned, zsh deliberately
-unchanged. Remaining work is in [TODO](#todo).
+Status: all 22 corpus languages measured; 21 aligned (every mismatch the
+grammar can express is fixed, the rest are gaps in the [status table](#status)),
+zsh deliberately unchanged. Remaining work is in [TODO](#todo).
 
 ## Truth hierarchy
 
@@ -13,9 +14,6 @@ unchanged. Remaining work is in [TODO](#todo).
 This repo is the canonical TextMate source. Downstream TextMate consumers
 (srcery-vscode) sync from `srcery.tmTheme`; tree-sitter consumers (Zed) map the
 same intent, not the selectors.
-
-"Aligned" = every mismatch the grammar can express is fixed; the rest are
-listed as gaps in the [status table](#status).
 
 ## Pinned environment
 
@@ -54,9 +52,9 @@ BAT_THEME=srcery python3 scripts/compare-bat-vim.py /tmp/vim_$lang.html "$f"
 ```
 
 Output: `bat #EF2F27 -> vim #68A8E4 [Type] x20  L14:'int'; …` — bat rendered 20
-tokens red; vim wants blue via group `Type`. Count = sum of `xN`. Exit 1 means
-"mismatches exist", not a tooling failure. The vim dump only changes with vim,
-so re-run just the compare step while iterating.
+tokens red; vim wants blue (`Type`). Count = sum of `xN`. Exit 1 = mismatches
+exist, not a tooling failure. The vim dump only changes with vim: while
+iterating, re-run just the compare step.
 
 ### Per language
 
@@ -117,9 +115,8 @@ so re-run just the compare step while iterating.
   `meta.preprocessor.haskell`, `meta.table.header.markdown-gfm`,
   `meta.link.reference.description.markdown`. Adding one needs a documented
   grammar limitation.
-- **fontStyle**: `bold`, `italic`, `underline`, combos, or `""` to cancel.
-- **Rule names** state intent and vim group:
-  `Java: doc comment (vim Comment)`.
+- **fontStyle** is `bold`/`italic`/`underline` or `""` to cancel. **Rule names**
+  state intent and vim group: `Java: doc comment (vim Comment)`.
 
 ## Established decisions
 
