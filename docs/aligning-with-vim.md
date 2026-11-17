@@ -1,4 +1,4 @@
-# Alignment plan: `srcery.tmTheme` ↔ srcery-vim
+# Aligning `srcery.tmTheme` with srcery-vim
 
 Status: all 22 corpus languages measured; 21 aligned (every mismatch the
 grammar can express is fixed, the rest are gaps in the [status table](#status)),
