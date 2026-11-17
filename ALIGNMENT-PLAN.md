@@ -13,8 +13,7 @@ scheme, used by bat, Sublime Text, and Textastic. The reference implementation
 is **srcery-vim**; when the two disagree, vim wins, in this order:
 
 1. **Palette** — only hexes from `@srcery-colors/srcery-palette` v2.0.0 may
-   appear in the theme (plus the intentional `#D0BFA1` gutter deviation, see
-   [Established decisions](#established-decisions-do-not-re-litigate)).
+   appear in the theme, with no exceptions.
 2. **srcery-vim rendered output** — what real vim shows for a token, measured
    (never eyeballed) with the harness below.
 3. **Existing tmTheme choices** — kept when vim expresses no opinion.
@@ -343,8 +342,9 @@ Re-opening them will regress other languages:
 4. **`variable.language` (this/self/super) stays foreground** as a generic
    rule; language-specific overrides (e.g. `variable.language.python` blue)
    are fine where measured.
-5. **`#D0BFA1` on gutterForeground/bracketsForeground/activeGuide** is an
-   intentional readability deviation (commit 39f4efa). Leave it.
+5. **gutterForeground/bracketsForeground/activeGuide use `white` `#C5B088`**,
+   not vim's `bright_black`, for readability (commit 39f4efa). This replaced
+   the off-palette `#D0BFA1`; keep it on-palette.
 6. **Background `#121110`** (current srcery black), not classic `#1C1B19`.
 7. **Doc comments** are generically `#2BE4D0` italic (vim SpecialComment,
    matches rust `///`). Python overrides to green (vim String). Other

@@ -32,15 +32,15 @@
           <key>bracketContentsForeground</key>
           <string>#917E6B</string>
           <key>bracketsForeground</key>
-          <string>#D0BFA1</string>
+          <string>#C5B088</string>
           <key>guide</key>
           <string>#262522</string>
           <key>activeGuide</key>
-          <string>#D0BFA1</string>
+          <string>#C5B088</string>
           <key>stackGuide</key>
           <string>#917E6B</string>
           <key>gutterForeground</key>
-          <string>#D0BFA1</string>
+          <string>#C5B088</string>
         </dict>
       </dict>
       <dict>
