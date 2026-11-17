@@ -26,7 +26,7 @@ values here when bumping anything, then re-measure every language.
 | --- | --- |
 | srcery-palette | v2.1.0 |
 | srcery-vim | `eaa0fc5` |
-| Neovim | _record_ (needs ≥ 0.9 for builtin `:TOhtml`) |
+| Neovim | 0.12.6 (needs ≥ 0.9 for builtin `:TOhtml`) |
 | bat | 0.26.1 → sublimehq/Packages `759d6ee` |
 | srcery-syntax-tester (corpus + harness) | `main` @ `850f59a` |
 
@@ -205,37 +205,35 @@ Each needs a maintainer answer, then a line in [decisions](#established-decision
 
 Each task ends when its **Done** condition holds.
 
-1. **Record the Neovim version** in [pinned environment](#pinned-environment).
-   Done: table has no `_record_` cells.
-2. **Re-measure all 22 languages at the pinned environment.** java,
+1. **Re-measure all 22 languages at the pinned environment.** java,
    typescript and rust predate both harness fixes.
    Done: status table counts confirmed or updated in one commit, with any
    changed gap re-audited.
-3. **Pin srcery-vim in the harness** (`dump-vim-html.lua` honours a ref
+2. **Pin srcery-vim in the harness** (`dump-vim-html.lua` honours a ref
    instead of cloning HEAD).
    Done: dump output identical across two fresh runs with the env var set.
-4. **Add baseline mode to `compare-bat-vim.py`** (`--max N` or a baselines
+3. **Add baseline mode to `compare-bat-vim.py`** (`--max N` or a baselines
    file; exit 0 unless count exceeds baseline).
    Done: script exits 0 for all 22 languages on `master`.
-5. **Add `scripts/lint-theme.py`** here: plist parses, every hex in
+4. **Add `scripts/lint-theme.py`** here: plist parses, every hex in
    `palette.json` v2.1.0, fontStyle values valid, direct-meta selectors in
    the approved list.
    Done: passes on `master`, fails on a planted off-palette hex.
-6. **CI workflow** running tasks 4 and 5 on PRs. Depends on the visibility
+5. **CI workflow** running tasks 3 and 4 on PRs. Depends on the visibility
    decision.
    Done: required status check green on `master`.
-7. **Add a JavaScript sample** to the corpus and align it.
+6. **Add a JavaScript sample** to the corpus and align it.
    Done: javascript row in status table.
-8. **Add a diff/patch sample** and align `markup.inserted/deleted/changed`
+7. **Add a diff/patch sample** and align `markup.inserted/deleted/changed`
    with vim `diffAdded`/`diffRemoved`/`diffChanged`.
    Done: diff row in status table.
-9. **Add `gutterForegroundHighlight` `#FBB829`** (vim `CursorLineNr`).
-    Done: key present, verified in Sublime Text.
-10. **Remove the duplicate `support.class` selector.**
-    Done: no selector appears in two rules.
-11. **VS Code scope spike**: tokenize the corpus with `vscode-textmate` +
-    VS Code's bundled grammars under this theme; list rules that never match.
-    Done: report attached to an issue in srcery-vscode.
-12. **srcery-syntax-tester housekeeping**: README language list (22), MANIFEST
-    count, delete merged branch `add-vim-truth-comparison`.
-    Done: counts consistent; branch gone.
+8. **Add `gutterForegroundHighlight` `#FBB829`** (vim `CursorLineNr`).
+   Done: key present, verified in Sublime Text.
+9. **Remove the duplicate `support.class` selector.**
+   Done: no selector appears in two rules.
+10. **VS Code scope spike**: tokenize the corpus with `vscode-textmate` +
+   VS Code's bundled grammars under this theme; list rules that never match.
+   Done: report attached to an issue in srcery-vscode.
+11. **srcery-syntax-tester housekeeping**: README language list (22), MANIFEST
+   count, delete merged branch `add-vim-truth-comparison`.
+   Done: counts consistent; branch gone.
