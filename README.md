@@ -41,26 +41,30 @@ should map the same visual intent rather than copy TextMate selectors verbatim.
 
 ### Usage with bat
 
-- [sharkdp/bat: A cat(1) clone with wings.](https://github.com/sharkdp/bat)
-
-Clone srcery-textmate somewhere
-
-```bash
-git clone https://github.com/srcery-colors/srcery-textmate ~/my-path
-```
-
-Then by following the steps in bat's readme:
+[bat](https://github.com/sharkdp/bat) finds themes anywhere inside its
+`themes` folder, so you can clone this repo straight into it:
 
 ```bash
-mkdir -p "$(bat --config-dir)/themes"
-cd "$(bat --config-dir)/themes"
-
-ln -s ~/my-path/srcery.tmTheme .
-
-bat cache --build # Update the binary cache
+git clone https://github.com/srcery-colors/srcery-textmate "$(bat --config-dir)/themes/srcery"
+bat cache --build
 ```
 
-Finally, use `bat --list-themes` to check if srcery is available.
+Try it:
+
+```bash
+bat --theme=srcery README.md
+```
+
+To make it the default, add `--theme=srcery` to your bat config file
+(`bat --config-file` shows where it is), or set `BAT_THEME=srcery` in your
+shell.
+
+To update later:
+
+```bash
+git -C "$(bat --config-dir)/themes/srcery" pull
+bat cache --build
+```
 
 
 ### Textastic
